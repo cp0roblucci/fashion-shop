@@ -48,7 +48,7 @@ Route::post('/cart/add', [CartContronller::class, 'requestAddProduct'])->name('c
 
 Route::post('/update-quantity-cart', [CartContronller::class, 'updateQuantity']);
 //checkout
-Route::get('/get-checkout', [CheckOutContronller::class, 'getProducts'])->name('checkout');
+Route::get('/get-checkout', [CheckOutContronller::class, 'getProducts']);
 Route::post('/checkout', [CheckOutContronller::class, 'index'])->name('checkout');
 Route::post('/create-order', [CheckOutContronller::class, 'createOrder'])->name('create-order');
 Route::post('/handle-checkout', [CheckOutContronller::class, 'handleCheckout'])->name('handle-checkout');

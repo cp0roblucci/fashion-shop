@@ -45,37 +45,18 @@ class UserController extends Controller
             'ND_avt' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], $messages);
     
-        
-//         // if ($avatar) {
-//         //     // $avatarPath = $avatar->store('public/images/users');
-//         //     // $avatarUrl = Storage::url($avatarPath);
-//         //     $avatarPath = $avatar->storeAs('public/images/users', $avatar->hashName());
-//         //     $avatarUrl = Storage::url($avatarPath);
-//         // } else {
-//         //     $avatarUrl = '/storage/images/admin/user_default.png';
-//         // }
-//         if($request->files->has('user-img')) {
-//             $file = $request->file('user-img');
-//             $userImg = $request->file('user-img')->getClientOriginalName();
+        if($request->files->has('user-img')) {
+            $file = $request->file('user-img');
+            $userImg = $request->file('user-img')->getClientOriginalName();
       
-//             $avtdb = '/storage/images/users/'. $userImg ;
-//             $path = 'public/storage/images/users/';
+            $avtdb = '/storage/images/users/'. $userImg ;
+            $path = 'public/storage/images/users/';
       
-//             $file->move(base_path($path), $userImg );
-//             $avatarUrl = $avtdb;
-//           } else {
-//             $avatarUrl = '/storage/images/admin/user_default.png';
-//           }
-// =======
-//         $avatar = $request->file('ND_avt');
-//         if ($avatar) {
-//             $avatarPath = $avatar->store('images/users', 'public');
-//             $avatarUrl = Storage::url($avatarPath);
-//         } else {
-//             $avatarUrl = '/storage/images/admin/user_default.png';
-//         }
-// >>>>>>> main
-        //nd mới
+            $file->move(base_path($path), $userImg );
+            $avatarUrl = $avtdb;
+          } else {
+            $avatarUrl = '/storage/images/admin/user_default.png';
+          }
         $user = User::firstOrNew(['email' => $request->input('email')], [
             'ND_VT' => $request->input('ND_VT'),
             'ND_Ho' => $request->input('ND_Ho'),
@@ -156,6 +137,8 @@ class UserController extends Controller
           Session::flash('update-success', 'Cập nhật người dùng thành công.');
           return redirect()->route('admin-users',compact('password'));
     }   
+   
+    }
     public function delete(Request $request)
     {
         $user_id = $request->input('user_id');
@@ -192,3 +175,4 @@ class UserController extends Controller
         return view('pages.admin.users.search-users',compact('ND_Ten','data'));
     }
 }
+

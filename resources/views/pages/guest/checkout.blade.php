@@ -2,65 +2,7 @@
 @endcomponent
 
 <main class="max-w-[1360px] mx-auto px-16 my-10 mt-[137px]">
-  {{-- <div class="grid grid-cols-2 gap-8">
-    <div class="col-span-1">
-      {{-- Infor --}}
-      {{-- <form action="{{route('create-order')}}" method="post">
-        @csrf
-        <div class="flex items-center justify-between py-2 border-b">
-          <h3 class="font-semibold uppercase">Thông tin liên hệ</h3>
-          <div class="text-14">
-            <span>Bạn đã có tài khoản?</span>
-            <a href="/login" class="font-semibold hover:underline hover:text-blue-500">Đăng nhập</a>
-          </div>
-        </div>
-        <input 
-          type="text" 
-          name="full_name" 
-          
-          value="{{ $user->ND_Ho . " " . $user->ND_Ten }} "
-          required 
-          placeholder="Họ và tên*" 
-          class="my-2 px-4 py-2 w-full text-14 border rounded-md shadow-sm focus-within:border-primary-500"
-        >
-        <div class="flex gap-4">
-          <input 
-            type="email" 
-            name="email"   
-            value={{$user->email}} 
-            required
-            placeholder="Email*" 
-            class="my-2 px-4 py-2 w-full text-14 border rounded-md shadow-sm focus-within:border-primary-500"
-          >
-          <input 
-            type="number" 
-            name="phone" 
-            value={{$user->ND_SDT}} 
-            required 
-            placeholder="Số điện thoại*" 
-            class="my-2 px-4 py-2 w-full text-14 border rounded-md shadow-sm focus-within:border-primary-500"
-          >
-        </div>
-        
-        <div class="py-2 border-b">
-          <h3 class="font-semibold uppercase">Địa chỉ nhận hàng</h3>
-        </div>
-
-        <input
-          type="text" 
-          name="address" 
-          value="{{$user->ND_Diachi}}"
-          required 
-          placeholder="Địa chỉ*" 
-          class="my-2 px-4 py-2 w-full text-14 border rounded-md shadow-sm focus-within:border-primary-500"
-        >
-
-        <textarea type="text" name="note" placeholder="Ghi chú" class="my-2 px-4 py-2 w-full text-14 border outline-none rounded-md shadow-sm focus-within:border-primary-500"></textarea>
-
-    
-      </form>
-    </div>  --}}
-
+  
     {{-- product --}}
     <form action="{{route('handle-checkout')}}" method="post">
       @csrf
